@@ -26,19 +26,9 @@ Short, dated entries. Add a new entry at the top of its section when a story, au
 - The global guard blocks a write that *adds* a test-disabling pattern, even in prose: the JUnit disable annotation written with its at-sign, a Vitest or Playwright skip or only call written as code, Gradle ignore-failures set to true. In documents, describe them in words.
 - zsh: an argument that starts with `=` (for example a line of equals signs given to `echo`) is expanded as a command path and fails; use `#####` as a separator.
 
-## Pending human action: guard path rules (D-04, approved by the PO 13 November 2026)
-
-`ROLE_PATHS` in the guard hook still names the old document paths, and `todo.md` is not yet writable for every role. The human runs, from the repository root:
-
-```bash
-node .claude/skills/project-learnings/apply-guard-paths.mjs && node .claude/hooks/selftest.mjs
-```
-
-The script changes only `COMMON` (adds `todo.md` for every role), `ROLE_PATHS` (rule documents in `.claude/skills/<area>/`, plan files for the lead, spikes for the architect) and the document paths of the self-test cases, and adds four cases (48 in all). It was tested on a copy: all cases pass; a second run changes nothing. Afterwards delete the script and this section, and set D-04 to done in `todo.md`.
-
 ## Known gaps in the documents (raise, do not guess)
 
-- `agents.md` AGT-042 names the owners of documents in "`workflow.md` 12.6", but `workflow.md` 12 has no such list. Owners used meanwhile: the write paths of the guard (`apply-guard-paths.mjs`).
+- `agents.md` AGT-042 names the owners of documents in "`workflow.md` 12.6", but `workflow.md` 12 has no such list. Owners used meanwhile: the write paths of the guard (ROLE_PATHS in .claude/hooks/guard.mjs)
 - `i18n.md` has no owner role in the guard's path rules.
 - `requirements.md` 0.3 does not yet cover every feature of `software-elements.md` 0.2 (`ai-docs/README.md` 6).
 - `software-elements.md` 2 lists "6 Ready to run" for `workflows`; the screen number is 8 (6 is the AI team).
