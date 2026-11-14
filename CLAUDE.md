@@ -8,6 +8,8 @@ A product built by a team of AI agents under human direction, in one monorepo, i
 
 ## 2. Start here (every agent, every session)
 
+**First thing in every session, even if nobody told you to read anything:** read [`kickoff-prompt.md`](kickoff-prompt.md) and [`todo.md`](todo.md), then decide: if Epic 0 has no developer yet under **In progress** (E-00 Planned), Phase 0 must be started with `/kickoff-epic0`; otherwise the work continues with `/next`. Tell the developer which one applies before doing anything else. Work on the `dev` branch line, never on `main` (section 7).
+
 0. Read [`todo.md`](todo.md) (where the work stands: current goal, epic, story, task; open decisions) and, to start or resume, [`kickoff-prompt.md`](kickoff-prompt.md). The plan is [`ai-docs/plan.md`](ai-docs/plan.md).
 1. Read [`.claude/skills/architecture/architecture.md`](.claude/skills/architecture/architecture.md): sections 2 (authority), 6 (invariants), 7 (deferred areas).
 2. Read your role in [`.claude/skills/team/team.md`](.claude/skills/team/team.md) and the rules in [`agents.md`](agents.md) (sections 5, 11, 12 and 14 first).
@@ -89,7 +91,9 @@ The real tools behind the commands are in `ci/README.md` and `.claude/skills/inf
 
 ## 7. Git conventions
 
-- Trunk: `main` (protected). Work on short branches named with the story id, for example `us-02.03-order-list`. Environments are shown by the pointer branches `env/dev`, `env/test`, `env/prod`, which only the pipeline moves (`.claude/skills/infrastructure/infrastructure.md` 5).
+- `main`: **not for commits and pushes** (protected on GitHub). It receives changes only through a pull request from `dev`, opened and merged by the owner (Product Owner) at an epic gate or release.
+- `dev`: the working trunk and the default branch (D-16). Work on short branches from `dev` named with the story id, for example `us-02.03-order-list`, and merge them back into `dev` through a pull request (`gh pr create --base dev`). Do not commit on `dev` directly.
+- Environments are shown by the pointer branches `env/dev`, `env/test`, `env/prod`, which only the pipeline moves (`.claude/skills/infrastructure/infrastructure.md` 5); `env/dev` (deployment pointer) is not the branch `dev` (working trunk).
 - Commit messages: a subject (what changed) and the story id; a body when the reason is not obvious. Name infrastructure, migration or seed changes in the subject.
 - Squash or rebase merges; the history of `main` stays linear. Tags are annotated `v<major>.<minor>.<patch>` and never moved.
 

@@ -13,8 +13,8 @@
       "Bash(npm run:*)",
       "Bash(npm test:*)",
       "Bash(npx vitest:*)",
-      "Bash(git commit:*)",                                                                     │…com/rechtsschutz/casemanagement/application/dto/CaseDto.java      +96 -9
-      "Bash(git push:*)",                                                                       │…tsschutz/casemanagement/application/service/CaseService.java    +224 -52
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
       "Bash(gh pr create:*)",
       "Bash(npx playwright test:*)",
       "Bash(docker compose ps:*)",
@@ -22,20 +22,18 @@
       "Bash(gh pr view:*)",
       "Bash(gh pr diff:*)",
       "Bash(gh pr checks:*)",
-      "Bash(node .claude/hooks/selftest.mjs)"
-    ],
-    "ask": [
-      "Bash(git commit:*)",
-      "Bash(git push:*)",
       "Bash(git merge:*)",
       "Bash(git rebase:*)",
-      "Bash(gh pr create:*)",
       "Bash(gh pr merge:*)",
       "Bash(gh repo:*)",
       "Bash(npm install:*)",
       "Bash(docker compose down:*)",
       "Bash(docker rm:*)",
-      "WebFetch"
+      "WebFetch",
+      "Bash(node .claude/hooks/selftest.mjs)"
+    ],
+    "ask": [
+
     ],
     "deny": [
       "Read(./.env)",

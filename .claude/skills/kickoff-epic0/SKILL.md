@@ -10,7 +10,7 @@ The plan is already approved by the Product Owner (the repository owner): do not
 
 ## 1. Check the machine and the repository (report each command and result)
 
-- `git switch main && git pull --rebase origin main`; `git status` clean. If `todo.md` still names an open pull request with the plan changes (Next action), say that the owner has to merge it first and stop.
+- `git switch dev && git pull --rebase origin dev`; `git status` clean. All work happens on branches from `dev` with pull requests into `dev`; `main` is not for commits and pushes (CLAUDE.md 7, `kickoff-prompt.md` branch rules).
 - `node .claude/hooks/selftest.mjs` (all pass) and `node .claude/skills/docs-check/check-refs.mjs` (0 broken).
 - `java -version` (21), `node -v` (24), `npm -v`, `docker info` (running), `gh auth status` (signed in, collaborator of `ekarimova/workflow-engine`).
 - `test -f .env && echo present` — only whether it exists; never read, print or stage it. Missing: tell the developer to create it with their own `ANTHROPIC_API_KEY` (needed for the live AI check of US-00.15, not before).
@@ -26,7 +26,7 @@ Read `todo.md`, `ai-docs/plan.md` (section "Target for 20 November"), `ai-docs/e
 
 ## 3. Record the takeover
 
-On a branch `docs-<yyyy-mm-dd>-epic0-kickoff`: in `todo.md` write the developer's name (as they give it; no e-mail or other personal data) as Epic 0 developer under **In progress**, set E-00 and G-01 to Active (in `todo.md`, `ai-docs/epics/E-00.md`, `ai-docs/goals/G-01.md`, `ai-docs/plan.md`) and add a dated line under **Done**. Commit, push, open the pull request (or include it in the first story's pull request if the developer prefers).
+On a branch `docs-<yyyy-mm-dd>-epic0-kickoff` from `dev`: in `todo.md` write the developer's name (as they give it; no e-mail or other personal data) as Epic 0 developer under **In progress**, set E-00 and G-01 to Active (in `todo.md`, `ai-docs/epics/E-00.md`, `ai-docs/goals/G-01.md`, `ai-docs/plan.md`) and add a dated line under **Done**. Commit, push, open the pull request into `dev` (or include it in the first story's pull request if the developer prefers).
 
 ## 4. Start
 

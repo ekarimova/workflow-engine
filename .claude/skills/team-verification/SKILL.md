@@ -9,7 +9,7 @@ disable-model-invocation: true
 
 Follow `.claude/skills/workflow/workflow.md` 5.1 (verification round), 8 (Definition of Done) and 17.3 (evidence block). The documents win over this skill.
 
-1. **Inputs.** Read `ai-docs/stories/$ARGUMENTS.md`, its task specs in `ai-docs/tasks/` and the agent reports. List the changed files (`git diff --stat main...HEAD`).
+1. **Inputs.** Read `ai-docs/stories/$ARGUMENTS.md`, its task specs in `ai-docs/tasks/` and the agent reports. List the changed files (`git diff --stat dev...HEAD`).
 2. **Pipeline.** Run `ci/run all-local`. If the command does not exist yet (early Epic 0), run what exists and record every missing step as "not run" with the reason. A red step stops the round: the story returns to the owner of the cause (AGT-023).
 3. **Verdicts.** For every active role in `CLAUDE.md` section 9, get one verdict: `pass`, `fail` (with the finding and rule ID) or `n.a.` (with the reason). Use the matching subagent; give it the changed files, the story card and its contracts, **not** the authors' reasoning (AGT-083). What each role verifies is the table in `.claude/skills/workflow/workflow.md` 5.1.
    - Product Owner: ask the human; record the answer and the date.

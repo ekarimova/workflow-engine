@@ -28,6 +28,13 @@ then type **`/next`**. It reads `todo.md` and the checkpoint of the current stor
 
 To work on a specific story: `/next US-ee.ss`.
 
+## Branch rules
+
+- `main`: **no commits, no pushes**, not even by the owner. It changes only through a pull request from `dev`, merged by the owner at an epic gate or release.
+- `dev`: the working trunk and the default branch; a clone starts on it. No direct commits either.
+- Your work: a branch from `dev` per story (`us-ee.ss-short-title`) or per document change (`docs-yyyy-mm-dd-topic`); commit and push it, open the pull request into `dev` (`gh pr create --base dev`). Someone else reviews and merges; never your own.
+- `/kickoff-epic0` and `/next` follow these rules for you.
+
 ## Where things are
 
 - [`todo.md`](todo.md): where the work stopped, open decisions, what is next. Keep it true after every task, story, decision or deployment; update it in your story branch, take a story by writing your name under **In progress**, keep both sides on a merge conflict.

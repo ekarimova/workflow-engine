@@ -21,12 +21,12 @@ The documents win over this skill (AGT-080). Work on one story at a time (CLAUDE
 | State of the story | Next step |
 |---|---|
 | Draft, no plan | `/start-story <id>` (Definition of Ready, task specs, the human approves the plan) |
-| Ready or In progress | branch `us-ee.ss-short-title` from an up-to-date `main` if it does not exist; start the subagent of the next open task with its task spec (the main session starts subagents, WFL-050); after each task: commit on the story branch (subject + story id + task id), update the checkpoint and `todo.md` |
+| Ready or In progress | branch `us-ee.ss-short-title` from an up-to-date `dev` (`git switch dev && git pull --rebase origin dev`) if it does not exist; start the subagent of the next open task with its task spec (the main session starts subagents, WFL-050); after each task: commit on the story branch (subject + story id + task id), update the checkpoint and `todo.md` |
 | All tasks done | `ci/run all-local` (steps that do not exist yet: "not run" with the reason), then `/team-verification <id>` |
-| Verified | push the story branch (`git push -u origin <branch>`, never `main`) and `gh pr create` with the template; tell the human the pull-request link to review and merge on GitHub |
-| Merged on GitHub | `git switch main`, `git pull --rebase origin main`, delete the local story branch; `ci/run deploy dev`, `ci/run verify dev` (when US-00.10 exists, else "not available"); story Done in the card, the epic file and `todo.md`; then go back to 1 for the next story |
+| Verified | push the story branch (`git push -u origin <branch>`) and `gh pr create --base dev` with the template; tell the human the pull-request link to review and merge on GitHub |
+| Merged on GitHub | `git switch dev`, `git pull --rebase origin dev`, delete the local story branch; `ci/run deploy dev`, `ci/run verify dev` (when US-00.10 exists, else "not available"); story Done in the card, the epic file and `todo.md`; then go back to 1 for the next story |
 
-Story-free work (a plan or document change): branch `docs-<yyyy-mm-dd>-<topic>`, commit, push, pull request, as above.
+Story-free work (a plan or document change): branch `docs-<yyyy-mm-dd>-<topic>` from `dev`, commit, push, pull request into `dev`, as above.
 
 ## 3. Before you stop (or when tokens run out)
 
@@ -34,4 +34,4 @@ Commit the work in progress on the story branch, write the checkpoint (last veri
 
 ## Git rules
 
-Commit and push only on story or docs branches. Never push to `main`, never force-push, never merge your own pull request (CLAUDE.md 3, guard hook). `.env` is never read, staged or committed.
+Commit and push only on story or docs branches made from `dev`; pull requests go into `dev`. Never commit or push on `main` or `dev` directly, never force-push, never merge your own pull request (CLAUDE.md 3, guard hook). `.env` is never read, staged or committed.
