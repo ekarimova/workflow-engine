@@ -37,7 +37,7 @@ Course: Hochschule Campus Wien, SDE, Advanced Software Development. Assignment #
 
 ```text
 CLAUDE.md                        project memory, loaded in every session; project facts in section 9
-kickoff-prompt.md                how to start or resume work; the plan-mode prompts
+kickoff-prompt.md                how to start or continue work (`/next`)
 todo.md                          where the work stands: current goal/epic/story/task, decisions, next, done, deployments
 agents.md                        agent rules (AGT): scope, guardrails, run discipline, project inventory (section 8)
 .env.example, .gitignore         placeholders only; secrets stay out of Git

@@ -10,7 +10,7 @@ disable-model-invocation: true
 Follow `.claude/skills/workflow/workflow.md` 4 and 5 and `agents.md` 4 and 12. The documents win over this skill (AGT-080).
 
 1. **Identify the story.** The first argument is the story id (`US-ee.ss`). If it is missing or malformed, ask the human for it and stop.
-2. **Gate check.** If the story is not in Epic E-00 and any Epic 0 story is still open, stop: no business story starts while Epic 0 has an open story (WFL-070).
+2. **Gate check.** A business story (not in E-00) starts only when US-00.08 (local pipeline) and US-00.10 (local dev) are Done; the other Epic 0 stories may still be open (PO decision D-13 of 2026-11-14, deviation from WFL-070, `ai-docs/plan.md`). Otherwise stop.
 3. **Story card.** Read `todo.md` and the epic file `ai-docs/epics/E-<ee>.md` (the story line, sources, deployment). Open `ai-docs/stories/<id>.md`. If it does not exist, copy `ai-docs/stories/_template.md` and fill it:
    - Epic 0 stories: from `.claude/skills/infrastructure/infrastructure.md` section 17 and `.claude/skills/workflow/workflow.md` 9.
    - Engine feature stories: from `ai-docs/requirements.md` (requirement IDs FR-…, QR-…) and `ai-docs/engine-architecture.md`.
@@ -22,4 +22,4 @@ Follow `.claude/skills/workflow/workflow.md` 4 and 5 and `agents.md` 4 and 12. T
 8. **Delegate.** After approval, start the role subagents task by task (`architect`, `ux-ui-designer`, `backend-developer`, `frontend-developer`, `tester`, `devops` as planned). Give each one its task spec path and context packet; subagents start without this session's history (AGT-082). Run two in parallel only on independent files and different domains (AGT-084).
 9. **Collect.** Read each agent report (`agents.md` 15.2). A blocker report goes to the human with the decision it needs.
 10. **Checkpoint.** Write the checkpoint into the story file: last verified commit and run, next step, open questions (AGT-067). Next step after the build: `/team-verification <id>`.
-11. **todo.md.** Update `todo.md` at the root: current position (goal, epic, story, task and states), the tasks of this story under "In progress", new decisions under "Decisions needed", and the date (`kickoff-prompt.md` 5). Update the story row in `ai-docs/epics/E-<ee>.md`. If this is the first story of an epic, set the epic and its goal to Active in their files and in `ai-docs/plan.md`.
+11. **todo.md.** Update `todo.md` at the root: current position (goal, epic, story, task and states), the tasks of this story under "In progress", new decisions under "Decisions needed", and the date (`kickoff-prompt.md`). Update the story row in `ai-docs/epics/E-<ee>.md`. If this is the first story of an epic, set the epic and its goal to Active in their files and in `ai-docs/plan.md`.
