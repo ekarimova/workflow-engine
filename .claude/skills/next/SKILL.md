@@ -11,7 +11,7 @@ The documents win over this skill (AGT-080). Work on one story at a time (CLAUDE
 
 ## 1. Find where the work stands
 
-1. Read `todo.md` (Current position, Decisions needed, In progress, Next) and `ai-docs/plan.md` section "Target for 20 November".
+1. Read `todo.md` (Current position, Decisions needed, In progress, Next) and `ai-docs/plan.md` section "Target for 20 November". If Epic 0 has not started yet (E-00 Planned, no Epic 0 developer under In progress), stop and tell the developer to type `/kickoff-epic0` first.
 2. Run `git status`, `git branch --show-current`, `git fetch origin` and `git log --oneline -5`. If the working tree has changes you did not make in this session, show them and ask before touching them.
 3. Pick the story: the argument if given; else the story **In progress** in `todo.md` that names this developer, or has no name; else the first story in **Next** whose dependencies are done and that nobody has taken. With several developers, write your name (or "developer N") and the story into **In progress** before you start, so nobody else takes it.
 4. Read its card `ai-docs/stories/<id>.md` and its **Checkpoint**: resume from the checkpoint, not from memory (AGT-067).

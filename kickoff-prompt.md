@@ -10,7 +10,15 @@ node .claude/skills/docs-check/check-refs.mjs   # documents: 0 broken references
 
 Put **your own** Anthropic key (with a spend limit) into a local `.env` as `ANTHROPIC_API_KEY=...`. It is git-ignored; never commit, paste or log it, and do not export it in the shell that runs Claude Code. Use your own Claude login for Claude Code. Tools: Java 21, Node 24, Docker, GitHub CLI (`ai-docs/README.md` 10).
 
-## Every session
+## Phase 0: first session of the developer who starts it
+
+```bash
+claude
+```
+
+then type **`/kickoff-epic0`**. It checks your machine and the repository, explains Epic 0 (the technical setup due 20 November) and its order, records you as the Epic 0 developer in `todo.md`, and starts the first story US-00.01. The plan is approved by the owner (Product Owner); open decisions in `todo.md` stay with the owner.
+
+## Every session after that
 
 ```bash
 claude

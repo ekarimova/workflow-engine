@@ -13,6 +13,9 @@
       "Bash(npm run:*)",
       "Bash(npm test:*)",
       "Bash(npx vitest:*)",
+      "Bash(git commit:*)",                                                                     │…com/rechtsschutz/casemanagement/application/dto/CaseDto.java      +96 -9
+      "Bash(git push:*)",                                                                       │…tsschutz/casemanagement/application/service/CaseService.java    +224 -52
+      "Bash(gh pr create:*)",
       "Bash(npx playwright test:*)",
       "Bash(docker compose ps:*)",
       "Bash(docker compose logs:*)",

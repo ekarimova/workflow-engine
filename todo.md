@@ -1,6 +1,6 @@
 # todo: where the work stands
 
-Kept up to date by everyone who works on the engine (human or agent): after each task, story, decision or deployment. To continue the work: `claude`, then `/next` (`kickoff-prompt.md`). Newest entries first. The plan: `ai-docs/plan.md`.
+Kept up to date by everyone who works on the engine (human or agent): after each task, story, decision or deployment. To start Phase 0: `claude`, then `/kickoff-epic0`; to continue: `/next` (`kickoff-prompt.md`). Newest entries first. The plan: `ai-docs/plan.md`.
 
 Last update: 2026-11-14, main session (Claude): PO decisions D-09 to D-13 recorded; target for 20 November = wish to reviewed workflow.
 
@@ -15,7 +15,7 @@ Last update: 2026-11-14, main session (Claude): PO decisions D-09 to D-13 record
 
 The Git repository exists (branch `main`, commits `99c096b`, `d014303`); `origin` = `github.com/ekarimova/workflow-engine` (public), where `main` is at `99c096b`. No product code exists: `backend/`, `frontend/`, `api/`, `ci/`, `infrastructure/` are not created. The code skeleton waits in `ai-docs/skeleton/`.
 
-**Next action:** human: merge the pull request with the plan changes of 2026-11-14 on GitHub, set the branch protection and add the collaborators (T-00.01.2); then `/next` (starts US-00.01).
+**Next action:** human: merge the pull request with the plan changes of 2026-11-14 on GitHub, set the branch protection and add the collaborators (T-00.01.2); then the Epic 0 developer runs `/kickoff-epic0` (starts US-00.01).
 
 ## Decisions needed (human: Product Owner and approving Architect)
 
@@ -41,6 +41,7 @@ The Git repository exists (branch `main`, commits `99c096b`, `d014303`); `origin
 | D-10 | CON-01: no example workflow in the product for now; concentrate on the engine. An example workflow may be used as test data where a test needs one | 2026-11-14 | US-00.05 (out of scope) |
 | D-09 | GitHub: use the existing repository `github.com/ekarimova/workflow-engine` (already `origin`); pull-request pipeline in Epic 0 | 2026-11-14 | US-00.01, US-00.09, T-00.01.2 |
 | D-14 | Agents commit and push on story or docs branches and open the pull request; the human (or another developer) merges on GitHub; never a push to `main`. `/next` (skill `next`) is the one command to continue the work | 2026-11-14 | `kickoff-prompt.md`, `.claude/skills/next/SKILL.md` |
+| D-15 | The owner does not build Phase 0: another developer takes over Epic 0 with `/kickoff-epic0`, then `/next`. The owner stays Product Owner (decisions, pull-request review and merge) | 2026-11-14 | `kickoff-prompt.md`, `.claude/skills/kickoff-epic0/SKILL.md` |
 | D-13 | Target for 20 November: the path from prompt to workflow generation and review before execute works end to end with Claude (BPMN level 1 up to Freeze contract), thin versions; execution prepared, not built. Business stories start after US-00.10; US-00.13, 11, 14, 07, 12, S1 and the E-00 gate after 20 Nov | 2026-11-14 | `ai-docs/plan.md` (Target for 20 November), E-00 to E-04, E-06 |
 
 The Word master of the requirements (`ai-docs/word/Workflow-Engine-Requirements-Specification.docx`) does not yet contain the 0.4 changes (human).
@@ -59,7 +60,7 @@ Kickoff plan of 2026-11-13, changed by the PO decisions D-09 to D-13 of 2026-11-
 
 ## Done
 
-- 2026-11-14 `kickoff-prompt.md` shortened to `/next`; new skill `next`; `/start-story` gate follows D-13; skill `kickoff-epic0` marked done (D-14).
+- 2026-11-14 `kickoff-prompt.md` shortened to `/next`; new skill `next`; `/start-story` gate follows D-13; skill `kickoff-epic0` rewritten as the Phase 0 kickoff for the developer who takes over Epic 0 (D-15).
 - 2026-11-14 PO decision D-13: target for 20 November = wish → questions → requirements → workflow → review → contract, thin, with Claude; `ai-docs/plan.md`, E-00 to E-04, E-06 updated.
 - 2026-11-14 PO decisions D-09 to D-12: new story US-00.15 with tasks T-00.15.1 to 4; US-00.09 into the 20 Nov scope with onboarding criteria; US-00.01, US-00.05, T-00.01.2, T-00.09.1, E-00, E-01, `ai-docs/plan.md` and `kickoff-prompt.md` updated.
 - 2026-11-14 Next list and the "20 Nov" column of `ai-docs/epics/E-00.md` set to the approved order. Cards US-00.05 and US-00.13 wait for the CON-01 answer.
